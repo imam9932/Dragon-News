@@ -4,7 +4,10 @@ import userImg from '../../dragon-news-resources/assets/user.png'
 import { AuthContext } from '../Provider/AuthProvider';
 
 const Navbar = () => {
-  const {user}=use(AuthContext)
+  const {user,logout}=use(AuthContext)
+  const handleSignout=()=>{
+    logout();
+  }
   return (
     <div className='flex justify-between items-center'>
       <div>{user && user.email}</div>
@@ -15,7 +18,10 @@ const Navbar = () => {
       </div>
       <div className='flex gap-2'>
         <img src={userImg} alt="userImg" />
-        <Link to={'/auth/login'} className='btn px-10 bg-black text-white'>Log-In</Link>
+        {
+          user? < button onClick={handleSignout} className='btn px-8 bg-black text-white'>Log-out</button> :  <Link to={'/auth/login'} className='btn px-10 bg-black text-white'>Log-In</Link>
+        }
+       
       </div>
     </div>
   );

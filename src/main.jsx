@@ -12,6 +12,9 @@ import Login from './Pages/Login.jsx';
 import Register from './Pages/Register.jsx';
 import AuthLayout from './Layout/AuthLayout.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
+import Logout from './Pages/Logout.jsx';
+import Newsdetails from './Components/Newsdetails.jsx';
+import PrivateRoute from './Provider/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -41,8 +44,19 @@ const router = createBrowserRouter([
       {
         path:'/auth/register',
       Component:Register,
+      },
+      {
+        path:'/auth/logout',
+      Component:Logout,
       }
     ]
+  },
+  {
+    path:'/news-details/:id',
+     element:<PrivateRoute>
+      <Newsdetails></Newsdetails>
+     </PrivateRoute>,
+    loader:()=> fetch("/news.json"),
   }
 ]);
 
