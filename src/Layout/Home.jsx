@@ -18,9 +18,9 @@ const Home = () => {
         <nav className='mt-5'>
           <Navbar></Navbar>
         </nav>
-      <main className='grid grid-cols-12 mt-5'>
+      <main className='grid grid-cols-12 mt-5 gap-3'>
         <section className='left-div col-span-3'>
-          <aside>
+          <aside className='sticky top-0 h-fit'>
             <LeftAside></LeftAside>
           </aside>
         </section>
@@ -28,7 +28,7 @@ const Home = () => {
           <Outlet></Outlet>
         </section>
         <section className='right-div col-span-3'>
-           <aside>
+           <aside className='sticky top-0 h-fit'>
              <RightAside></RightAside>
           </aside>
         </section>

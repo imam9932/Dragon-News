@@ -9,7 +9,7 @@ const Header = () => {
         <img src={logo} alt="" />
         <p className='text-gray-500'>Journalism Without Fear or Favour</p>
       
-        <p>{format(new Date(),'EEEE , MMMM MM , yyyy')}</p>
+        <p>{format(new Date(),'EEEE , MMMM dd , yyyy')}</p>
       </div>
     </div>
   );
